@@ -11,14 +11,15 @@
 |
 */
 
+//menampilkan gambar PNG/JPG/JPEG desain ERD yang sudah dibuat di soal no. 1
 Route::get('/', function () {
-    return view('welcome');
+    return view('artikel.erd');
 });
 
-Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
-Route::post('/items', 'ItemController@store'); // menyimpan data
-Route::get('/items', 'ItemController@index'); // menampilkan semua
-Route::get('/items/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
-Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
-Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
-Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
+Route::get('/artikel', 'ArtikelController@artikel'); // menampilkan tabel berisi data artikel-artikel
+Route::get('artikel/create', 'ArtikelController@create'); // menampilkan form untuk membuat artikel baru
+Route::post('/artikel', 'ArtikelController@store'); // menyimpan artikel baru
+Route::get('artikel/{id}', 'ArtikelController@detail'); // menampilkan halaman detil (show) untuk artikel dengan id tertentu
+Route::get('/artikel/{id}/edit', 'ArtikelController@edit'); // menampilkan halaman form edit untuk artikel dengan id tertentu
+Route::put('/artikel/{id}', 'ArtikelController@update'); // menyimpan data dari form edit
+Route::delete('/artikel/{id}', 'ArtikelController@delete');// menghapus data dengan id tertentu
